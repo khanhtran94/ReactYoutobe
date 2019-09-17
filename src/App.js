@@ -5,13 +5,15 @@ import React from "react";
 // import TodoItem from "./components/TodoItem";
 //import ContactCard from "./components/ContactCard";
 import Joke from "./components/Joke";
+import jokeDate from "./jokeDate";
+
 function App() {
-  return (
-    <div>
-      <Joke question="what your name?" answer="Khanhtt2" />
-      <Joke question="How are you" answer="I fine, thanks" />
-      <Joke question="where are you" />
-    </div>
-  );
+  jokeDate.map(joke => {
+    return <Joke question={joke.question} answer={joke.ansert} />;
+  });
+  const jokeComponents = jokeDate.map(joke => (
+    <Joke key={joke.id} question={joke.question} answer={joke.answer} />
+  ));
+  return <div>{jokeComponents}</div>;
 }
 export default App;
