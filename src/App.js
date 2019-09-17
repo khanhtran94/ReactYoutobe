@@ -4,21 +4,17 @@ import React from "react";
 // import MainContent from "./components/MainContent";
 // import TodoItem from "./components/TodoItem";
 //import ContactCard from "./components/ContactCard";
-import Joke from "./components/Joke";
-import jokeDate from "./jokeDate";
-import productData from "./vschoolProuducts";
-import Product from "./components/Product";
-function App() {
-  jokeDate.map(joke => {
-    return <Joke question={joke.question} answer={joke.ansert} />;
-  });
-  const jokeComponents = jokeDate.map(joke => (
-    <Joke key={joke.id} question={joke.question} answer={joke.answer} />
-  ));
+//import Joke from "./components/Joke";
+// import jokeDate from "./jokeDate";
+// import productData from "./vschoolProuducts";
+// import Product from "./components/Product";
+import TodoItem from "./components/TodoItem";
+import todosData from "./data/todosData";
 
-  const productComponents = productData.map(item => (
-    <Product key={item.id} product={item} />
+function App() {
+  const itemComponent = todosData.map(item => (
+    <TodoItem key={item.id} item={item} />
   ));
-  return <div>{productComponents}</div>;
+  return <div>{itemComponent}</div>;
 }
 export default App;
