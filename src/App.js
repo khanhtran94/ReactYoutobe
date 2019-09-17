@@ -6,7 +6,8 @@ import React from "react";
 //import ContactCard from "./components/ContactCard";
 import Joke from "./components/Joke";
 import jokeDate from "./jokeDate";
-
+import productData from "./vschoolProuducts";
+import Product from "./components/Product";
 function App() {
   jokeDate.map(joke => {
     return <Joke question={joke.question} answer={joke.ansert} />;
@@ -14,6 +15,10 @@ function App() {
   const jokeComponents = jokeDate.map(joke => (
     <Joke key={joke.id} question={joke.question} answer={joke.answer} />
   ));
-  return <div>{jokeComponents}</div>;
+
+  const productComponents = productData.map(item => (
+    <Product key={item.id} product={item} />
+  ));
+  return <div>{productComponents}</div>;
 }
 export default App;
