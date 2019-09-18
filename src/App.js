@@ -19,10 +19,17 @@ import todosData from "./data/todosData";
 // }
 
 class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      answer: "yes"
+    };
+  }
   render() {
     return (
       <div>
         <Header username="khanh 123" />
+        <h3>Is state import {this.state.answer}</h3>
       </div>
     );
   }
