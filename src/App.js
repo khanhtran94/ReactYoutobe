@@ -22,14 +22,21 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      answer: "yes"
+      isLoggedIn: false
     };
   }
   render() {
+    let wordShow;
+    if (this.state.isLoggedIn) {
+      wordShow = "in";
+    } else {
+      wordShow = "out";
+    }
     return (
       <div>
         <Header username="khanh 123" />
         <h3>Is state import {this.state.answer}</h3>
+        <h3>User log {wordShow}</h3>
       </div>
     );
   }
