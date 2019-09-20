@@ -1,6 +1,6 @@
 import React from "react";
 // import Footer from "./components/Footer";
-import Header from "./components/Header";
+//import Header from "./components/Header";
 // import MainContent from "./components/MainContent";
 // import TodoItem from "./components/TodoItem";
 //import ContactCard from "./components/ContactCard";
@@ -22,23 +22,15 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      isLoggedIn: false
+      todos: todosData
     };
   }
   render() {
-    let wordShow;
-    if (this.state.isLoggedIn) {
-      wordShow = "in";
-    } else {
-      wordShow = "out";
-    }
-    return (
-      <div>
-        <Header username="khanh 123" />
-        <h3>Is state import {this.state.answer}</h3>
-        <h3>User log {wordShow}</h3>
-      </div>
-    );
+    const todoItems = this.state.todos.map(item => (
+      <TodoItem key={item.id} item={item} />
+    ));
+
+    return <div>{todoItems}</div>;
   }
 }
 export default App;
