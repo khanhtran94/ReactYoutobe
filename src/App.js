@@ -25,6 +25,7 @@ class App extends React.Component {
       todos: todosData
     };
   }
+
   render() {
     const todoItems = this.state.todos.map(item => (
       <TodoItem key={item.id} item={item} />
