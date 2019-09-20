@@ -26,6 +26,7 @@ class App extends React.Component {
       count: 0
     };
     this.handleClick = this.handleClick.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
   handleClick() {
     console.log("click");
@@ -36,18 +37,26 @@ class App extends React.Component {
     });
   }
 
+  handleChange(id) {
+    this.setState(prevState => {
+      const updateTodos = prevState.todos.map(todo => {
+        if (todo.id == id) {
+          console.log(todo.completed);
+          todo.completed = !todo.completed;
+        }
+        return todo;
+      });
+      return {
+        todos: updateTodos
+      };
+    });
+  }
   render() {
-    // const todoItems = this.state.todos.map(item => (
-    //   <TodoItem key={item.id} item={item} />
-    // ));
+    const todoItems = this.state.todos.map(item => (
+      <TodoItem key={item.id} item={item} handleChange={this.handleChange} />
+    ));
 
-    return (
-      <div>
-        {/* {todoItems} */}
-        <h1>{this.state.count}</h1>
-        <button onClick={this.handleClick}>Click</button>
-      </div>
-    );
+    return <div>{todoItems}</div>;
   }
 }
 export default App;
